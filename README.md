@@ -1,6 +1,6 @@
 ## PrepPy 
 
-![](https://github.com/camadi/PrepPy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/camadi/PrepPy/branch/master/graph/badge.svg)](https://codecov.io/gh/camadi/PrepPy) ![Release](https://github.com/camadi/PrepPy/workflows/Release/badge.svg)
+![](https://github.com/UBC-MDS/PrepPy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/PrepPy/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/PrepPy) ![Release](https://github.com/UBC-MDS/PrepPy/workflows/Release/badge.svg)
 
 [![Documentation Status](https://readthedocs.org/projects/PrepPy/badge/?version=latest)](https://PrepPy.readthedocs.io/en/latest/?badge=latest)
 
@@ -13,15 +13,35 @@ pip install -i https://test.pypi.org/simple/ PrepPy
 ```
 
 ### Features
-- TODO
+This package has the following features:
+
+- split data set into train, validation, and test sets
+
+- identify data types for each column/feature 
+
+- perform one-hot encoding on the categorical features
+
+- perform standardcscaling on the numerical features
+
+- concat the generated columns to original dataframe
+
+- rename columns
+
+
 
 ### Dependencies
 
-- TODO
+- Onehotencoding
+
+- StandardScaler
+
+- 
 
 ### Usage
 
-- TODO
+from PrepPy import 
+
+pre = 
 
 ### Documentation
 The official documentation is hosted on Read the Docs: <https://PrepPy.readthedocs.io/en/latest/>
