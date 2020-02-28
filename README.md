@@ -4,7 +4,17 @@
 
 [![Documentation Status](https://readthedocs.org/projects/PrepPy/badge/?version=latest)](https://PrepPy.readthedocs.io/en/latest/?badge=latest)
 
-Python package for preprocessing of data
+This is a Python package that preprocesses data as follows:
+
+- Identifies features of different data types in a dataframe
+
+- Splits data into train, validation, and test sets
+
+- One-hot encodes features of categorical type
+
+- Performs standard scaling of categorical features
+
+- The package returns preprocessed and split train, validation, and test data sets ready for analysis/modelling
 
 ### Installation:
 
@@ -31,17 +41,41 @@ This package has the following features:
 
 ### Dependencies
 
-- Onehotencoding
+- import pandas as pd
 
-- StandardScaler
+- import numpy as np
 
-- 
+- from sklearn.preprocessing import OneHotEncoder
+
+- from sklearn.preprocessing import StandardScaler, MinMaxScaler
+
+- from sklearn.model_selection import train_test_split
+
 
 ### Usage
 
-from PrepPy import 
+from PrepPy import PrepPy as pp
 
-pre = 
+**Identify features of different data types**
+`pp.data_type(my_data)['num']`
+
+`pp.data_type(my_data)['cat']`
+
+
+**One-hot encode features of categorical type**
+
+`pp.one_hot(my_data)`
+
+**Train, validation, and test split**
+
+`pp.split(my_data)`
+
+**Standard Scaling of categorical features**
+
+`X_train = pp.scaler(x_train, x_test, colnames)['x_train']`
+
+`X_test = pp.scaler(x_train, x_test, colnames)['x_test']`
+
 
 ### Documentation
 The official documentation is hosted on Read the Docs: <https://PrepPy.readthedocs.io/en/latest/>
