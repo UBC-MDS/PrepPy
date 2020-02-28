@@ -28,3 +28,33 @@ def data_type(df):
       1	banana
       2	pear
   """
+
+
+
+def one_hot(encodable_df):
+    """
+    One-hot encodes features of categorical type
+
+    Parameters
+    ----------
+    encodable_df : pandas.core.frame.DataFrame
+        A dataframe of categorical features
+    
+    Returns
+    -------
+    pandas.core.frame.DataFrame
+        Returns the same dataframe with useful column names and one-hot encoded features
+
+    Examples
+    --------
+    >>> from prepPy import prepPy as pp
+    >>> my_data = pd.DataFrame(np.array([['monkey'], ['dog'], ['cat']]),
+                                columns=['animals'])
+    >>> pp.one_hot(my_data)
+    animals_monkey    animals_dog   animals_cat
+            1               0           0
+            0               1           0
+            0               0           1
+
+
+    """
