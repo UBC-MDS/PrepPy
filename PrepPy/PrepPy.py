@@ -30,6 +30,110 @@ def data_type(df):
   """
 
 
+def train_valid_test(X, y, test_size, valid_size, train_size, stratify, random_state, shuffle)):
+  """
+  Split arrays or matrices into random train, validation and test subsets
+  
+  Parameters
+  ----------
+  X, y: Sequence of indexables of the same length / shape[0]
+      Allowable inputs are lists, numpy arrays, scipy-sparse matrices or pandas dataframes
+       
+  test_size: float, int or None, optional (default=None)
+      If float, a value between 0.0 and 1.0 to represent the proportion of the dataset to
+          comprise the size of the test subset
+      If int, a value for the absolute number of test samples
+      If None, the value is set to the complement of the sum of the train_size and test_size
+      If train_size and test_size are also None, it will be set to 0.25
+      
+  valid_size: float, int or None, (default=None)
+      If float, a value between 0.0 and 1.0 to represent the proportion of the dataset to
+          comprise the size of the test subset
+      If int, a value for the absolute number of test samples
+      If None, the value will be set to 0.0
+      
+  train_size: float, int or None, (default=None)
+      If float, a value between 0.0 and 1.0 to represent the proportion of the dataset to
+          comprise the size of the test subset
+      If int, a value for the absolute number of test samples
+      If None, the value will be set to the complement of the test_size and train_size
+  
+  stratify: array-like or None (default=None)
+      If not None, splits categorical data in a stratified fashion preserving the same proportion
+          of classes in the train, valid and test sets, using this input as the class labels    
+      
+  random_state: int, optional (default=None)
+      A value for the seed to be used by the random number generator
+      If None, the value will be set to `123`
+      
+  shuffle: boolean, optional (default=True)
+      Indicate whether data is to be shuffled prior to splitting
+  
+  Returns
+  -------
+  splits: list, length=3 * len(arrays)
+      List containing train, validation and test splits of the input data
+      
+  Examples
+  --------
+  >>> from prepPy import prepPy as pp
+  >>> X, y = np.arange(16).reshape((8, 2)), range(8)
+  >>> X
+  array([[0, 1],
+         [2, 3],
+         [4, 5],
+         [6, 7],
+         [8, 9],
+         [10, 11],
+         [12, 13],
+         [14, 15]])
+           
+  >>> list(y)
+  [0, 1, 2, 3, 4, 5, 6, 7]
+    
+  >>> X_train, X_valid, X_test, y_train, y_valid, y_test = train_test_split(
+            X, y, test_size=0.25, valid_size=0.25, random_state=777)
+
+  >>> X_train
+  array([[4, 5],
+         [0, 1],
+         [6, 7],
+         [12, 13]])
+           
+  >>> y_train
+  [3, 0, 2, 5]
+
+  >>> X_valid
+  array([[2, 3],
+         [10, 11]])
+           
+  >>> y_valid
+  [1, 4]
+  
+  >>> X_test
+  array([[8, 9],
+         [14, 15]])
+           
+  >>> y_test
+  [7, 6]  
+  
+  
+  >>> train_test_split(X, test_size=2, shuffle=False)
+
+  >>> X_train
+  array([[2, 3],
+         [14, 15],
+         [6, 7],
+         [12, 13],
+         [4, 5],
+         [10, 11]])
+  
+  >>> X_test
+  array([[8, 9],
+         [0, 1]])
+         
+  """
+
 def one_hot(encodable_df):
     """
     One-hot encodes features of categorical type
