@@ -1,10 +1,13 @@
-# Credits
+## Development Leads
 
-
-## Development Lead
-
-* Chimaobi Amadi <maobiamadi@gmail.com>
+Jasmine Qin
+Chimaobi Amadi
+Matthew Connell
+George Thio
 
 ## Contributors
 
-None yet. Why not be the first?
+Jasmine Qin
+Chimaobi Amadi
+Matthew Connell
+George Thio

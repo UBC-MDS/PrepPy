@@ -171,6 +171,9 @@ def scaler(X_train, X_test, num_columns):
   X_train : pandas.core.frame.DataFrame
     Dataframe of train set containing columns to be scaled.
   
+  X_valid : pandas.core.frame.DataFrame
+    Dataframe of validation set containing columns to be scaled.
+
   X_test : pandas.core.frame.DataFrame
     Dataframe of test set containing columns to be scaled.  
 
@@ -181,15 +184,17 @@ def scaler(X_train, X_test, num_columns):
   -------
   dict
       Stores the scaled and transformed X_train and X_test sets separately as two dataframes.
-
- Examples
+      
+  Examples
   --------
-  >>> from prepPy import prepPy as pp
-
+  >>> from PrepPy import prepPy as pp
   >>> x_train = pd.DataFrame(np.array([['Blue', 56, 4], ['Red', 35, 6], ['Green', 18, 9]]),
                              columns=['color', 'count', 'usage'])
 
   >>> x_test = pd.DataFrame(np.array([['Blue', 66, 6], ['Red', 42, 8], ['Green', 96, 0]]),
+                             columns=['color', 'count', 'usage'])
+
+  >>> x_valid = pd.DataFrame(np.array([['Blue', 30, 18], ['Red', 47, 2], ['Green', 100, 4]]),
                              columns=['color', 'count', 'usage'])
 
   >>> colnames = ['count', 'usage']                          
@@ -199,8 +204,17 @@ def scaler(X_train, X_test, num_columns):
   >>> X_train    
     color	count	usage
 0	Blue	1.26538	-1.13555
-1	Red	    -0.0857887	-0.162221
+1	Red	  -0.0857887	-0.162221
 2	Green	-1.17959	1.29777
+
+
+  >>> X_valid = pp.scaler(x_train, x_valid, x_test, colnames)['x_valid']
+
+  >>> X_valid
+    color	count	usage
+ 0  Blue    1.80879917 -0.16222142
+ 1  Red     0.16460209  1.81110711
+ 2  Green   2.43904552 -4.082207 
 
   >>> X_test = pp.scaler(x_train, x_test, colnames)['x_test']
 
