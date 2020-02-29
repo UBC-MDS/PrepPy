@@ -1,5 +1,3 @@
-# Credits
-
 ## Contributors
 
 * Chimaobi Amadi <maobiamadi@gmail.com>
