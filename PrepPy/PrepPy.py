@@ -30,7 +30,7 @@ def data_type(df):
   """
 
 
-def train_valid_test(X, y, test_size, valid_size, train_size, stratify, random_state, shuffle)):
+def train_valid_test_split(X, y, test_size, valid_size, train_size, stratify, random_state, shuffle)):
   """
   Split arrays or matrices into random train, validation and test subsets
   
@@ -48,25 +48,25 @@ def train_valid_test(X, y, test_size, valid_size, train_size, stratify, random_s
       
   valid_size: float, int or None, (default=None)
       If float, a value between 0.0 and 1.0 to represent the proportion of the dataset to
-          comprise the size of the test subset
-      If int, a value for the absolute number of test samples
+          comprise the size of the validation subset
+      If int, a value for the absolute number of validation samples
       If None, the value will be set to 0.0
       
   train_size: float, int or None, (default=None)
       If float, a value between 0.0 and 1.0 to represent the proportion of the dataset to
-          comprise the size of the test subset
-      If int, a value for the absolute number of test samples
+          comprise the size of the train subset
+      If int, a value for the absolute number of train samples
       If None, the value will be set to the complement of the test_size and train_size
   
   stratify: array-like or None (default=None)
       If not None, splits categorical data in a stratified fashion preserving the same proportion
           of classes in the train, valid and test sets, using this input as the class labels    
       
-  random_state: int, optional (default=None)
+  random_state: integer, optional (default=None)
       A value for the seed to be used by the random number generator
-      If None, the value will be set to `123`
+      If None, the value will be set to 1
       
-  shuffle: boolean, optional (default=True)
+  shuffle: logical, optional (default=TRUE)
       Indicate whether data is to be shuffled prior to splitting
   
   Returns
@@ -91,7 +91,7 @@ def train_valid_test(X, y, test_size, valid_size, train_size, stratify, random_s
   >>> list(y)
   [0, 1, 2, 3, 4, 5, 6, 7]
     
-  >>> X_train, X_valid, X_test, y_train, y_valid, y_test = train_test_split(
+  >>> X_train, X_valid, X_test, y_train, y_valid, y_test = pp.train_valid_test_split(
             X, y, test_size=0.25, valid_size=0.25, random_state=777)
 
   >>> X_train
@@ -118,7 +118,7 @@ def train_valid_test(X, y, test_size, valid_size, train_size, stratify, random_s
   [7, 6]  
   
   
-  >>> train_test_split(X, test_size=2, shuffle=False)
+  >>> pp.train_valid_test_split(X, test_size=2, shuffle=False)
 
   >>> X_train
   array([[2, 3],
