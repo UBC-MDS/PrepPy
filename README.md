@@ -4,17 +4,12 @@
 
 [![Documentation Status](https://readthedocs.org/projects/PrepPy/badge/?version=latest)](https://PrepPy.readthedocs.io/en/latest/?badge=latest)
 
-This is a Python package that preprocesses data as follows:
+### Package Summary
 
-- Identifies features of different data types in a dataframe
-
-- Splits data into train, validation, and test sets
-
-- One-hot encodes features of categorical type
-
-- Performs standard scaling of categorical features
-
-- The package returns preprocessed and split train, validation, and test data sets ready for analysis/modelling
+`PrepPy` is a package for Python to help preprocessing in machine learning tasks. 
+There are certain repetitive tasks  that come up often when doing a machine learning project and this package aims to alleviate those chores.
+Some of the issues that come up regularly are: finding the types of each column in a dataframe, splitting the data (whether into train/test sets or train/test/validation sets, one-hot encoding,  and scaling features.
+This package will help with all of those tasks.
 
 ### Installation:
 
@@ -23,19 +18,16 @@ pip install -i https://test.pypi.org/simple/ PrepPy
 ```
 
 ### Features
+
 This package has the following features:
 
-- split data set into train, validation, and test sets
+- `train_valid_test_split`: This function splits the data set into train, validation, and test sets.
 
-- identify data types for each column/feature 
+- `data_type`: This function identifies data types for each column/feature. It returns one dataframe for each type of data.
 
-- perform one-hot encoding on the categorical features
+- `one-hot`: This function performs one-hot encoding on the categorical features and returns a dataframe for the train, test, validation sets with sensible column names.
 
-- perform standardcscaling on the numerical features
-
-- concat the generated columns to original dataframe
-
-- rename columns
+- `scaler`: This function performs standard scaling on the numerical features. 
 
 
 
@@ -75,6 +67,16 @@ from PrepPy import PrepPy as pp
 `X_train = pp.scaler(x_train, x_test, colnames)['x_train']`
 
 `X_test = pp.scaler(x_train, x_test, colnames)['x_test']`
+
+### Our package in the Python ecosystem
+
+Many of the functions in this package can also be done using the various functions of `sklearn`.
+However, some of the functions in `sklearn` take multiple steps to complete what our package can do in one line.
+For example, if one wants to split a dataset into train, test, and validation sets, they would need to use `sklearn`'s `train_test_split` twice.
+Our package's `train_test_val_split` allows users to do this more efficiently.
+Further, the one-hot encoder in `sklearn` does not make sensible column names unless the user does some wrangling.
+Our `one-hot` function will implement `sklearn`'s one-hot encoder, but will wrangle the columns and name them automatically.
+Overall, we feel this package will fit in well with the Python ecosystem and help make machine learning a little easier. 
 
 
 ### Documentation
