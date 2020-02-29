@@ -1,13 +1,9 @@
-## Development Leads
-
-Jasmine Qin
-Chimaobi Amadi
-Matthew Connell
-George Thio
-
 ## Contributors
 
-Jasmine Qin
-Chimaobi Amadi
-Matthew Connell
-George Thio
+* Chimaobi Amadi <maobiamadi@gmail.com>
+
+* Jasmine Qin <yijia.qin@alumni.ubc.ca>
+           
+* George Thio <george.thio@gmail.com>
+
+* Matthew Connell <matthew.at.connell@gmail.com>
