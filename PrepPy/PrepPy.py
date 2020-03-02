@@ -1,3 +1,6 @@
+from sklearn.preprocessing import OneHotEncoder
+
+
 def data_type(df):
   """
   Identify features of different data types.
@@ -134,19 +137,27 @@ def train_valid_test_split(X, y, test_size, valid_size, train_size, stratify, ra
          
   """
 
-def one_hot(encodable_df):
+def one_hot(cols, train, valid, test):
     """
     One-hot encodes features of categorical type
-
-    Parameters
-    ----------
-    encodable_df : pandas.core.frame.DataFrame
-        A dataframe of categorical features
     
+    Arguments:
+    ---------
+    cols : list
+        list of column names
+        
+    train : pandas.DataFrame
+        The train set from which the columns come
+        
+    valid : pandas.DataFrame
+        The validation set from which the columns come
+        
+    test : pandas.DataFrame
+        The test set from which the columns come
+        
     Returns
-    -------
-    pandas.core.frame.DataFrame
-        Returns the same dataframe with useful column names and one-hot encoded features
+        train_encoded, valid_encoded, test_encoded : pandas.DataFrames
+            The encoded DataFrames
 
     Examples
     --------
@@ -158,9 +169,20 @@ def one_hot(encodable_df):
             1               0           0
             0               1           0
             0               0           1
-
-
     """
+    ohe = OneHotEncoder(sparse=False)
+    
+    names = []
+    
+    for i in train[cols].columns:
+        for j in np.sort(train[i].unique()):
+            names.append(i + str(j))
+            
+    train_encoded = pd.DataFrame(ohe.fit_transform(train[cols]), columns = names)
+    valid_encoded = pd.DataFrame(ohe.transform(valid[cols]), columns = names)
+    test_encoded = pd.DataFrame(ohe.transform(test[cols]), columns = names)
+    
+    return train_encoded, valid_encoded, test_encoded
 
 def scaler(X_train, X_test, num_columns):
   """
