@@ -14,7 +14,7 @@ def data_type(df):
 
     Examples
     --------
-    >>> from prepPy import prepPy as pp
+    >>> from PrepPy import PrepPy as pp
     >>> my_data = pd.DataFrame(np.array([['apple', 3, 0], ['banana', 5, 6], ['pear', 8, 9]]),
                                columns=['fruits', 'count', 'price'])
     >>> pp.data_type(my_data)['num']
