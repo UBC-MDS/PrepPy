@@ -9,20 +9,21 @@ def data_type(df):
 
     Returns
     -------
-    dict
+    tuple
         Stores the categorical and numerical columns separately as two dataframes.
 
     Examples
     --------
     >>> from prepPy import prepPy as pp
-    >>> my_data = pd.DataFrame(np.array([['apple', 3, 0], ['banana', 5, 6], ['pear', 8, 9]]),
-                               columns=['fruits', 'count', 'price'])
-    >>> pp.data_type(my_data)['num']
+    >>> my_data = pd.DataFrame({'fruits': ['apple', 'banana', 'pear'],
+                                'count': [3, 5, 8],
+                                'price': [1.0, 6.5, 9.23]})
+    >>> pp.data_type(my_data)[0]
           count price
-        0     3     0
-        1     5     6
-        2     8     9
-    >>> pp.data_type(my_data)['cat']
+        0     3     1.0
+        1     5     6.5
+        2     8     9.23
+    >>> pp.data_type(my_data)[1]
           fruits
         0   apple
         1   banana
