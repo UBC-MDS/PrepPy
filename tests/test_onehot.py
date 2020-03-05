@@ -8,5 +8,5 @@ helperdata1 = pd.DataFrame(np.array([['monkey'], ['dog'], ['cat']]),
 
 
 def onehot_test1():
-    output = pp.onehot(helperdata1)
+    output = pp.onehot(['animals'], helperdata1)
     assert(output.columns == helperdata1.iloc[1])

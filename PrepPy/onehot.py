@@ -1,6 +1,6 @@
 from sklearn.preprocessing import OneHotEncoder
 
-def one_hot(cols, train, valid, test):
+def one_hot(cols, train, valid = None, test = None):
     """
     One-hot encodes features of categorical type
     
@@ -27,7 +27,7 @@ def one_hot(cols, train, valid, test):
     >>> from prepPy import prepPy as pp
     >>> my_data = pd.DataFrame(np.array([['monkey'], ['dog'], ['cat']]),
                                 columns=['animals'])
-    >>> pp.one_hot(my_data)
+    >>> pp.one_hot(pp.onehot(['animals'], mydata))
     animals_monkey    animals_dog   animals_cat
             1               0           0
             0               1           0
@@ -40,9 +40,15 @@ def one_hot(cols, train, valid, test):
     for i in train[cols].columns:
         for j in np.sort(train[i].unique()):
             names.append(i + str(j))
+
+    train_encoded, valid_encoded, test_encoded = (None, None, None)
             
     train_encoded = pd.DataFrame(ohe.fit_transform(train[cols]), columns = names)
-    valid_encoded = pd.DataFrame(ohe.transform(valid[cols]), columns = names)
-    test_encoded = pd.DataFrame(ohe.transform(test[cols]), columns = names)
+
+    if valid is not None:
+        valid_encoded = pd.DataFrame(ohe.transform(valid[cols]), columns = names)
+    
+    if test is not None:
+        test_encoded = pd.DataFrame(ohe.transform(test[cols]), columns = names)
     
     return train_encoded, valid_encoded, test_encoded
