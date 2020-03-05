@@ -59,8 +59,8 @@ def train_valid_test_split(X, y, test_size=None, valid_size=None, train_size=Non
     >>> list(y)
     [0, 1, 2, 3, 4, 5, 6, 7]
     
-    >>> X_train, X_valid, X_test, y_train, y_valid, y_test = pp.train_valid_test_split(X, y, test_size=0.25, valid_size=0.25, random_state=777)
-
+    >>> X_train, X_valid, y_train, y_valid, X_test, y_test = pp.train_valid_test_split(X, y, test_size=0.25, valid_size=0.25, random_state=777)
+        
     >>> X_train
     array([[4, 5],
           [0, 1],
@@ -136,4 +136,4 @@ def train_valid_test_split(X, y, test_size=None, valid_size=None, train_size=Non
                                                            random_state=1,
                                                            shuffle=True)
                                                            
-    return X_train, X_valid, y_train, y_valid, X_test, y_test
+    return pd.DataFrame(X_train), pd.DataFrame(X_valid), pd.DataFrame(y_train), pd.DataFrame(y_valid), pd.DataFrame(X_test), pd.DataFrame(y_test)
