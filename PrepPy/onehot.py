@@ -39,7 +39,7 @@ def one_hot(cols, train, valid = None, test = None):
     
     for i in train[cols].columns:
         for j in np.sort(train[i].unique()):
-            names.append(i + str(j))
+            names.append(i + '_' + str(j))
 
     train_encoded, valid_encoded, test_encoded = (None, None, None)
             
