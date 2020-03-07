@@ -1,3 +1,5 @@
+import pandas as pd
+
 def data_type(df):
     """
     Identify features of different data types.
