@@ -1,4 +1,4 @@
-from prepPy import prepPy as pp
+from PrepPy import PrepPy as pp
 
 import pandas as pd
 import numpy as np
