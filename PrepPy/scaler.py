@@ -66,7 +66,7 @@ def scaler(X_train, X_validation, X_test, colnames):
     import numpy as np
     import pandas as pd  
     
-    
+    #Type error exceptions
     if not isinstance(X_train, pd.DataFrame) or not isinstance(X_test, pd.DataFrame) or not isinstance(X_validation, pd.DataFrame):
         raise TypeError('A wrong data type has been passed. Please pass a dataframe')
 
