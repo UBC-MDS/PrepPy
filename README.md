@@ -73,10 +73,10 @@ from PrepPy import PrepPy as pp
 Many of the functions in this package can also be done using the various functions of `sklearn`.
 However, some of the functions in `sklearn` take multiple steps to complete what our package can do in one line.
 For example, if one wants to split a dataset into train, test, and validation sets, they would need to use `sklearn`'s `train_test_split` twice.
-Our package's `train_test_val_split` allows users to do this more efficiently.
+This package's `train_test_val_split` allows users to do this more efficiently.
 Further, the one-hot encoder in `sklearn` does not make sensible column names unless the user does some wrangling.
-Our `one-hot` function will implement `sklearn`'s one-hot encoder, but will wrangle the columns and name them automatically.
-Overall, we feel this package will fit in well with the Python ecosystem and help make machine learning a little easier. 
+The `one-hot` function in this package will implement `sklearn`'s one-hot encoder, but will wrangle the columns and name them automatically.
+Overall, this package fits in well with the Python ecosystem and can help make machine learning a little easier. 
 
 
 ### Documentation
