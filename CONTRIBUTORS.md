@@ -1,10 +1,9 @@
-# Credits
-
-
-## Development Lead
+## Contributors
 
 * Chimaobi Amadi <maobiamadi@gmail.com>
 
-## Contributors
+* Jasmine Qin <yijia.qin@alumni.ubc.ca>
+           
+* George Thio <george.thio@gmail.com>
 
-None yet. Why not be the first?
+* Matthew Connell <matthew.at.connell@gmail.com>
