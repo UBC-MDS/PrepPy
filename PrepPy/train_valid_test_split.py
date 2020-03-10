@@ -66,7 +66,6 @@ def train_valid_test_split(X, y, valid_size=0.25, test_size=None, stratify=None,
            
     >>> y_train
     [3, 0, 2, 5]
-
     >>> X_valid
     array([[2, 3],
          [10, 11]])
@@ -83,7 +82,6 @@ def train_valid_test_split(X, y, valid_size=0.25, test_size=None, stratify=None,
   
   
     >>> pp.train_valid_test_split(X, test_size=2, shuffle=False)
-
     >>> X_train
     array([[2, 3],
           [14, 15],
@@ -121,4 +119,12 @@ def train_valid_test_split(X, y, valid_size=0.25, test_size=None, stratify=None,
                                                            random_state=random_state,
                                                            shuffle=shuffle)
                                                            
-    return X_train, X_valid, X_test, y_train, y_valid, y_test
+    splits = {'X_train': pd.DataFrame(X_train),
+              'X_valid': pd.DataFrame(X_valid), 
+              'X_test': pd.DataFrame(X_test),
+              'y_train': pd.DataFrame(y_train),
+              'y_valid': pd.DataFrame(y_valid),
+              'y_test': pd.DataFrame(y_test)}
+            
+        
+    return list(splits.values())
