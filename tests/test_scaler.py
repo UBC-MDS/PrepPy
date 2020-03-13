@@ -1,4 +1,5 @@
 import pytest
+from pytest import raises
 from sklearn.preprocessing import StandardScaler
 import numpy as np
 import pandas as pd 
@@ -24,9 +25,13 @@ def input_data():
 
     colnames = ['count', 'usage']  
     dataset['colnames'] =   colnames
-
-    dataset['X_train_empty'] = pd.DataFrame()
     
+    df_empty = pd.DataFrame() #empty dataframe
+    dataset['df_empty'] = df_empty
+
+    wrong_type = np.zeros(6)
+    dataset['wrong_type'] = wrong_type
+
     return dataset
  
 def test_output(input_data):
@@ -35,7 +40,9 @@ def test_output(input_data):
     X_test = input_data['X_test']
     X_validation = input_data['X_validation']
     colnames = input_data['colnames']
-    X_train_empty = input_data['X_train_empty']
+    df_empty = input_data['df_empty'] 
+    wrong_type = input_data['wrong_type']
+
     assert np.isclose(scaler.scaler(X_train, X_validation, X_test, colnames)['X_train']['usage'][0], -1.135549947915338) == True
     assert np.isclose(scaler.scaler(X_train, X_validation, X_test, colnames)['X_test']['usage'][2], -1.3728129459672882) == True
 
@@ -48,3 +55,11 @@ def test_output(input_data):
     assert X_test.equals(scaler.scaler(X_train, X_validation, X_test, colnames)['X_test']) == False
 
     #assert Exception
+    with raises(ValueError, match = "Input data cannot be empty"):
+      scaler.scaler(df_empty, X_validation, X_test, colnames)
+
+    with raises(TypeError, match = "A wrong data type has been passed. Please pass a dataframe"):
+      scaler.scaler(wrong_type, X_validation, X_test, colnames)
+
+    with raises(TypeError, match = "Numeric column names is not in a list format"):
+      scaler.scaler(X_train, X_validation, X_test, X_train)

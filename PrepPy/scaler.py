@@ -103,20 +103,3 @@ def scaler(X_train, X_validation, X_test, colnames):
     if len(colnames) == 0:
         # Colnames can be empty if all columns are numeric
         colnames = list(X_train.columns)
-
-    scaled_data = {}
-
-    sc = StandardScaler()
-
-    X_train_scaled = X_train.copy()
-    X_train_scaled[colnames] = sc.fit_transform(X_train[colnames])
-    scaled_data['X_train'] = X_train_scaled
-
-    X_validation_scaled = X_validation.copy()
-    X_validation_scaled[colnames] = sc.fit_transform(X_validation[colnames])
-    scaled_data['X_validation'] = X_validation_scaled
-
-    X_test_scaled = X_test.copy()
-    X_test_scaled[colnames] = sc.fit_transform(X_test[colnames])
-    scaled_data['X_test'] = X_test_scaled
-    return scaled_data
