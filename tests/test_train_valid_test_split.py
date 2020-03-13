@@ -17,12 +17,12 @@ def test_train_test_valid_split():
     
     output = pp.train_valid_test_split(X,y)
     
-    assert(output[0].shape[0] == 4)
-    assert(output[1].shape[0] == 2)
-    assert(output[2].shape[0] == 2)
-    assert(output[3].shape[0] == 4)
-    assert(output[4].shape[0] == 2)
-    assert(output[5].shape[0] == 2)
+    assert(output['X_train'].shape[0] == 4)
+    assert(output['X_valid'].shape[0] == 2)
+    assert(output['X_test'].shape[0] == 2)
+    assert(output['y_train'].shape[0] == 4)
+    assert(output['y_valid'].shape[0] == 2)
+    assert(output['y_test'].shape[0] == 2)
     
     
     
