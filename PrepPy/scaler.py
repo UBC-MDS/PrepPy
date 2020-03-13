@@ -67,8 +67,6 @@ def scaler(X_train, X_validation, X_test, colnames):
     1  Red     0.36460209  0.81110711
     2  Green   3.83904552 -3.082207
     """
-
-    from sklearn.preprocessing import StandardScaler
     import pandas as pd
 
     if not isinstance(X_train, pd.DataFrame):
