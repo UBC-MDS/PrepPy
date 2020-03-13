@@ -30,7 +30,7 @@ def data_type(df):
   """
 
 
-def train_valid_test_split(X, y, test_size, valid_size, train_size, stratify, random_state, shuffle)):
+def train_valid_test_split(X, y, test_size, valid_size, train_size, stratify, random_state, shuffle):
   """
   Split arrays or matrices into random train, validation and test subsets
   
