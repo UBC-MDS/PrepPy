@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 from sklearn.model_selection import train_test_split
 
 
@@ -91,10 +92,10 @@ def train_valid_test_split(X,
           [0, 1]])
     """
 
-    if not isinstance(X, pd.DataFrame):
+    if not isinstance(X, (np.ndarray, pd.DataFrame)):
         raise Exception("Please provide a valid Pandas DataFrame object for X")
 
-    if not isinstance(y, pd.DataFrame):
+    if not isinstance(y, (np.ndarray, pd.DataFrame, list)):
         raise Exception("Please provide a valid Pandas DataFrame object for")
 
     assert len(X) != 0, "Your input is empty"
@@ -116,10 +117,12 @@ def train_valid_test_split(X,
                          stratify=stratify,
                          random_state=random_state,
                          shuffle=shuffle)
-    splits = {'X_train': pd.DataFrame(X_train),
-              'X_valid': pd.DataFrame(X_valid),
-              'X_test': pd.DataFrame(X_test),
-              'y_train': pd.DataFrame(y_train),
-              'y_valid': pd.DataFrame(y_valid),
-              'y_test': pd.DataFrame(y_test)}
+
+    splits = (pd.DataFrame(X_train),
+              pd.DataFrame(X_valid),
+              pd.DataFrame(X_test),
+              pd.DataFrame(y_train),
+              pd.DataFrame(y_valid),
+              pd.DataFrame(y_test))
+
     return splits
