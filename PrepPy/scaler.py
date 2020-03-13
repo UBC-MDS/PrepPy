@@ -50,7 +50,6 @@ def scaler(X_train, X_validation, X_test, colnames):
     2  Green   3.83904552 -3.082207
     """
 
-<<<<<<< HEAD
     from sklearn.preprocessing import StandardScaler
     import pandas as pd
 
@@ -75,49 +74,19 @@ def scaler(X_train, X_validation, X_test, colnames):
         colnames = list(X_train.columns)
         # Colnames can be empty if all columns are numeric
 
-=======
-    
-    from sklearn.preprocessing import StandardScaler
-    import numpy as np
-    import pandas as pd  
-    
-    #Type error exceptions
-    if not isinstance(X_train, pd.DataFrame) or not isinstance(X_test, pd.DataFrame) or not isinstance(X_validation, pd.DataFrame):
-        raise TypeError('A wrong data type has been passed. Please pass a dataframe')
-
-    if not isinstance(colnames, list):
-        raise TypeError('Numeric column names is not in a list format')
-    
-    if ((X_train.empty == True) or (X_test.empty == True) or (X_validation.empty == True) or (len(colnames) == 0)):
-        raise ValueError('Input data cannot be empty')
-    
->>>>>>> 4a2c6c2da9484f55631eaa918585124f99355056
     scaled_data = {}
 
     sc = StandardScaler()
 
-<<<<<<< HEAD
-=======
-    
->>>>>>> 4a2c6c2da9484f55631eaa918585124f99355056
     X_train_scaled = X_train.copy()
     X_train_scaled[colnames] = sc.fit_transform(X_train[colnames])
     scaled_data['X_train'] = X_train_scaled
     
     X_validation_scaled = X_validation.copy()
     X_validation_scaled[colnames] = sc.fit_transform(X_validation[colnames])
-<<<<<<< HEAD
     scaled_data['X_validation'] = X_validation_scaled
 
     X_test_scaled = X_test.copy()
     X_test_scaled[colnames] = sc.fit_transform(X_test[colnames])
     scaled_data['X_test'] = X_test_scaled
     return scaled_data
-=======
-    scaled_data['X_validation'] = X_validation_scaled   
-    
-    X_test_scaled = X_test.copy()
-    X_test_scaled[colnames] = sc.fit_transform(X_test[colnames])
-    scaled_data['X_test'] = X_test_scaled
-    return scaled_data
->>>>>>> 4a2c6c2da9484f55631eaa918585124f99355056

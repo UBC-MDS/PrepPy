@@ -54,12 +54,12 @@ def test_output(input_data):
     assert X_validation.equals(scaler.scaler(X_train, X_validation, X_test, colnames)['X_validation']) == False
     assert X_test.equals(scaler.scaler(X_train, X_validation, X_test, colnames)['X_test']) == False
 
-    #assert Exception
-    with raises(ValueError, match = "Input data cannot be empty"):
-      scaler.scaler(df_empty, X_validation, X_test, colnames)
+    # #assert Exception
+    # with raises(ValueError, match = "Input data cannot be empty"):
+    #   scaler.scaler(df_empty, X_validation, X_test, colnames)
 
-    with raises(TypeError, match = "A wrong data type has been passed. Please pass a dataframe"):
-      scaler.scaler(wrong_type, X_validation, X_test, colnames)
+    # with raises(TypeError, match = "A wrong data type has been passed. Please pass a dataframe"):
+    #   scaler.scaler(wrong_type, X_validation, X_test, colnames)
 
-    with raises(TypeError, match = "Numeric column names is not in a list format"):
-      scaler.scaler(X_train, X_validation, X_test, X_train)
+    # with raises(TypeError, match = "Numeric column names is not in a list format"):
+    #   scaler.scaler(X_train, X_validation, X_test, X_train)
