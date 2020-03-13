@@ -45,51 +45,35 @@ def scaler(X_train, X_validation, X_test, colnames):
     2  Green   3.83904552 -3.082207 
     """
 
-
+    
     from sklearn.preprocessing import StandardScaler
     import numpy as np
     import pandas as pd  
-
-
-    if not isinstance(X_train, pd.DataFrame):
-        raise Exception('X_train is not a dataframe. The type of X_train passed is: {}. Please convert to dataframe'.format(type(X_train)))
-
-    if not isinstance(X_test, pd.DataFrame):
-        raise Exception('X_test is not a dataframe. The type of X_test passed is: {}. Please convert to dataframe'.format(type(X_test)))
-
-    if not isinstance(X_validation, pd.DataFrame):
-        raise Exception('X_validation is not a dataframe. The type of X_validation passed is: {}. Please convert to dataframe'.format(type(X_validation)))
+    
+    #Type error exceptions
+    if not isinstance(X_train, pd.DataFrame) or not isinstance(X_test, pd.DataFrame) or not isinstance(X_validation, pd.DataFrame):
+        raise TypeError('A wrong data type has been passed. Please pass a dataframe')
 
     if not isinstance(colnames, list):
-        raise Exception('Numeric column names is not a list')
-
- #   if X_train.empty == True:
-  #      raise Exception('X_train cannot be empty')
-#
- #   if X_test.empty == True:
-  #      raise Exception('X_test cannot be empty')
-
-
-   # if X_validation.empty == True:
-    #    raise Exception('X_validation cannot be empty')
-
-    if len(colnames) == 0:
-        colnames = list(X_train.columns) #Colnames can be empty if all columns are numeric
-
+        raise TypeError('Numeric column names is not in a list format')
+    
+    if ((X_train.empty == True) or (X_test.empty == True) or (X_validation.empty == True) or (len(colnames) == 0)):
+        raise ValueError('Input data cannot be empty')
+    
     scaled_data = {}
 
     sc = StandardScaler()
 
-
+    
     X_train_scaled = X_train.copy()
     X_train_scaled[colnames] = sc.fit_transform(X_train[colnames])
     scaled_data['X_train'] = X_train_scaled
-
+    
     X_validation_scaled = X_validation.copy()
     X_validation_scaled[colnames] = sc.fit_transform(X_validation[colnames])
     scaled_data['X_validation'] = X_validation_scaled   
-
+    
     X_test_scaled = X_test.copy()
     X_test_scaled[colnames] = sc.fit_transform(X_test[colnames])
     scaled_data['X_test'] = X_test_scaled
-    return scaled_data 
+    return scaled_data
