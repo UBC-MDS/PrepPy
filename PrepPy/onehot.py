@@ -47,11 +47,11 @@ def one_hot(cols, train, valid=None, test=None):
     train_encoded, valid_encoded, test_encoded = (None, None, None)
 
     train_encoded = pd.DataFrame(ohe.fit_transform(train[cols]),
-                                columns=names)
+                                 columns=names)
 
     if valid is not None:
         valid_encoded = pd.DataFrame(ohe.transform(valid[cols]),
-                                        columns=names)
+                                     columns=names)
 
     if test is not None:
         test_encoded = pd.DataFrame(ohe.transform(test[cols]),
