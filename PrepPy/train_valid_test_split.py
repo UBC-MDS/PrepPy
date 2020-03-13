@@ -117,6 +117,7 @@ def train_valid_test_split(X,
                          stratify=stratify,
                          random_state=random_state,
                          shuffle=shuffle)
+
     splits = (pd.DataFrame(X_train),
               pd.DataFrame(X_valid),
               pd.DataFrame(X_test),
