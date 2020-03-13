@@ -1,13 +1,6 @@
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-<<<<<<< HEAD
-def train_valid_test_split(X, y, valid_size=0.25, test_size=None, 
-                           stratify=None, random_state=None, shuffle=True):
-    """
-    Splits arrays or matrices into random train, validation and test subsets
-    The proprotion of the train set relative to the input data will be 
-=======
 
 def train_valid_test_split(X,
                            y,
@@ -19,38 +12,18 @@ def train_valid_test_split(X,
     """
     Splits dataframes into random train, validation and test subsets
     The proprotion of the train set relative to the input data will be
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     valid_size * (1 - test)
     ....
     Parameters
     ----------
     X, y: Sequence of indexables of the same length / shape[0]
-<<<<<<< HEAD
-        Allowable inputs are lists, numpy arrays, scipy-sparse matrices or 
-        pandas dataframes
-    
-    test_size: float or None, optional (default=None)
-        float, a value between 0.0 and 1.0 to represent the proportion of the 
-=======
         Allowable inputs are lists, numpy arrays, scipy-sparse matrices or
         pandas dataframes
     test_size: float or None, optional (default=None)
         float, a value between 0.0 and 1.0 to represent the proportion of the
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
             input dataset toccomprise the size of the test subset
         If None, the value is set to 0.25
     valid_size: float or None, (default=0.25)
-<<<<<<< HEAD
-        float, a value between 0.0 and 1.0 to represent the proportion of the 
-            input dataset toccomprise the size of the validation subset
-        Default value is set to 0.25  
-  
-    stratify: array-like or None (default=None)
-        If not None, splits categorical data in a stratified fashion preserving
-            the same proportion of classes in the train, valid and test sets, 
-            using this input as the class labels    
-      
-=======
         float, a value between 0.0 and 1.0 to represent the proportion of the
             input dataset toccomprise the size of the validation subset
         Default value is set to 0.25
@@ -58,7 +31,6 @@ def train_valid_test_split(X,
         If not None, splits categorical data in a stratified fashion preserving
             the same proportion of classes in the train, valid and test sets,
             using this input as the class labels
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     random_state: integer, optional (default=None)
         A value for the seed to be used by the random number generator
         If None, the value will be set to 1
@@ -80,15 +52,6 @@ def train_valid_test_split(X,
           [8, 9],
           [10, 11],
           [12, 13],
-<<<<<<< HEAD
-          [14, 15]])    
-    >>> list(y)
-    [0, 1, 2, 3, 4, 5, 6, 7]
-    
-    >>> X_train, X_valid, X_test, y_train, y_valid, y_test = 
-            pp.train_valid_test_split(X, y, test_size=0.25, 
-                                      valid_size=0.25, random_state=777)   
-=======
           [14, 15]])
     >>> list(y)
     [0, 1, 2, 3, 4, 5, 6, 7]
@@ -98,38 +61,23 @@ def train_valid_test_split(X,
                                       test_size=0.25,
                                       valid_size=0.25,
                                       random_state=777)
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     >>> X_train
     array([[4, 5],
           [0, 1],
           [6, 7],
-<<<<<<< HEAD
-          [12, 13]])       
-=======
           [12, 13]])
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     >>> y_train
     [3, 0, 2, 5]
     >>> X_valid
     array([[2, 3],
-<<<<<<< HEAD
-         [10, 11]])       
-=======
          [10, 11]])
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     >>> y_valid
     [1, 4]
     >>> X_test
     array([[8, 9],
-<<<<<<< HEAD
-         [14, 15]]) 
-    >>> y_test
-    [7, 6]  
-=======
          [14, 15]])
     >>> y_test
     [7, 6]
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     >>> pp.train_valid_test_split(X, test_size=2, shuffle=False)
     >>> X_train
     array([[2, 3],
@@ -143,37 +91,6 @@ def train_valid_test_split(X,
           [0, 1]])
     """
 
-<<<<<<< HEAD
-    # Check data input types and parameters
-    assert ((isinstance(X, pd.DataFrame)) or (isinstance(X, np.ndarray)) or
-        (isinstance(X, pd.DataFrame))), "Please input a list, numpy array, 
-         scipy-sparse matrices or pandas dataframe"
-    assert ((isinstance(y, pd.DataFrame)) or (isinstance(X, np.ndarray)) or 
-        (isinstance(X, pd.DataFrame))), "Please input a list, numpy array, 
-         scipy-sparse matrices or pandas dataframe"
-
-    assert len(X) != 0, "Your input is empty"
-    assert len(y) != 0, "Your input is empty"
-            
-    # Split into `test` set and `resplit` set to be resplit into `train` and `valid` sets 
-    X_resplit, X_test, y_resplit, y_test = train_test_split(X, 
-                                                            y, 
-                                                            test_size=test_size, 
-                                                            stratify=stratify,
-                                                            random_state=random_state,
-                                                            shuffle=shuffle)    
-
-    
-    X_train, X_valid, y_train, y_valid  = train_test_split(X_resplit,
-                                                           y_resplit, 
-                                                           test_size=valid_size, 
-                                                           stratify=stratify,
-                                                           random_state=random_state,
-                                                           shuffle=shuffle)
-                                                           
-    splits = {'X_train': pd.DataFrame(X_train),
-              'X_valid': pd.DataFrame(X_valid), 
-=======
     if not isinstance(X, pd.DataFrame):
         raise Exception("Please provide a valid Pandas DataFrame object for X")
 
@@ -201,14 +118,8 @@ def train_valid_test_split(X,
                          shuffle=shuffle)
     splits = {'X_train': pd.DataFrame(X_train),
               'X_valid': pd.DataFrame(X_valid),
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
               'X_test': pd.DataFrame(X_test),
               'y_train': pd.DataFrame(y_train),
               'y_valid': pd.DataFrame(y_valid),
               'y_test': pd.DataFrame(y_test)}
-<<<<<<< HEAD
-                
-=======
-
->>>>>>> bf1e3266edde0369bd7100c9c3373611113fad83
     return splits
