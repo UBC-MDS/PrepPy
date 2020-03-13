@@ -127,4 +127,4 @@ def train_valid_test_split(X, y, valid_size=0.25, test_size=None, stratify=None,
               'y_test': pd.DataFrame(y_test)}
             
         
-    return list(splits.values())
+    return splits
