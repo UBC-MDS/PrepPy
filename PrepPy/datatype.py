@@ -1,5 +1,6 @@
 import pandas as pd
 
+
 def data_type(df):
     """
     Identify features of different data types.
@@ -12,7 +13,8 @@ def data_type(df):
     Returns
     -------
     tuple
-        Stores the categorical and numerical columns separately as two dataframes.
+        Stores the categorical and numerical columns separately
+        as two dataframes.
 
     Examples
     --------
@@ -31,16 +33,15 @@ def data_type(df):
         1   banana
         2   pear
     """
-    
+
     # Try-except for data_type
     if not isinstance(df, pd.DataFrame):
         raise Exception("Please provide a valid Pandas DataFrame object")
     elif len(df) == 0:
         raise Exception("Your DataFrame is empty")
-    
+
     cols = df.columns
     numeric_vars = df._get_numeric_data().columns
     categorical_vars = [c for c in cols if c not in numeric_vars]
 
-                
     return (df[numeric_vars], df[categorical_vars])
