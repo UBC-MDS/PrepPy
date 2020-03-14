@@ -40,3 +40,16 @@ def check_exception2():
                            train=helperdata1,
                            valid=helperdata1,
                            test="helper")
+                           
+def check_exception3():
+    with pytest.raises(Exception):
+        onehot.onehot(cols=['animals'],
+                           train=helperdata1,
+                           valid=pd.DataFrame())
+                           
+def check_exception4():
+    with pytest.raises(Exception):
+        onehot.onehot(cols=['animals'],
+                           train=helperdata1,
+                           valid=helperdata1,
+                           test=pd.DataFrame())
