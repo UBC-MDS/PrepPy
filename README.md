@@ -80,7 +80,7 @@ Overall, this package fits in well with the Python ecosystem and can help make m
 
 
 ### Documentation
-The official documentation is hosted on Read the Docs: <https://PrepPy.readthedocs.io/en/latest/>
+The official documentation is hosted on Read the Docs: <https://preppy524.readthedocs.io/en/latest/>
 
 ### Credits
 This package was created with Cookiecutter and the UBC-MDS/cookiecutter-ubc-mds project template, modified from the [pyOpenSci/cookiecutter-pyopensci](https://github.com/pyOpenSci/cookiecutter-pyopensci) project template and the [audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage).
