@@ -2,7 +2,7 @@
 
 ![](https://github.com/UBC-MDS/PrepPy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/PrepPy/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/PrepPy) ![Release](https://github.com/UBC-MDS/PrepPy/workflows/Release/badge.svg)
 
-[![Documentation Status](https://readthedocs.org/projects/PrepPy524/badge/?version=latest)](https://PrepPy.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/preppy524/badge/?version=latest)](https://preppy524.readthedocs.io/en/latest/?badge=latest)
 
 ### Package Summary
 
