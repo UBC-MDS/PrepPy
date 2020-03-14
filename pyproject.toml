@@ -20,6 +20,12 @@ sphinxcontrib-napoleon = "^0.7"
 pytest = "^5.4.1"
 python-semantic-release = "^4.10.0"
 
+ [tool.semantic_release]
+ version_variable = "PrepPy/__init__.py:__version__"
+ version_source = "commit"
+ upload_to_pypi = "false"
+ patch_without_tag = "true"
+
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
