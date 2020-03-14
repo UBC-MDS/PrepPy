@@ -18,16 +18,16 @@ def data_type(df):
 
     Examples
     --------
-    >>> from prepPy import prepPy as pp
+    >>> from PrepPy import datatype
     >>> my_data = pd.DataFrame({'fruits': ['apple', 'banana', 'pear'],
                                 'count': [3, 5, 8],
                                 'price': [1.0, 6.5, 9.23]})
-    >>> pp.data_type(my_data)[0]
+    >>> datatype.data_type(my_data)[0]
           count price
         0     3     1.0
         1     5     6.5
         2     8     9.23
-    >>> pp.data_type(my_data)[1]
+    >>> datatype.data_type(my_data)[1]
           fruits
         0   apple
         1   banana
