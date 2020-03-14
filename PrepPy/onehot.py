@@ -3,7 +3,7 @@ import numpy as np
 import pandas as pd
 
 
-def one_hot(cols, train, valid=None, test=None):
+def onehot(cols, train, valid=None, test=None):
     """
     One-hot encodes features of categorical type
 
@@ -30,7 +30,7 @@ def one_hot(cols, train, valid=None, test=None):
     >>> from prepPy import prepPy as pp
     >>> my_data = pd.DataFrame(np.array([['monkey'], ['dog'], ['cat']]),
                                 columns=['animals'])
-    >>> pp.one_hot(pp.onehot(['animals'], mydata))
+    >>> pp.onehot(pp.onehot(['animals'], mydata))
     animals_monkey    animals_dog   animals_cat
             1               0           0
             0               1           0
