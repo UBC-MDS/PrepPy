@@ -12,6 +12,7 @@ pandas = "^1.0.1"
 numpy = "^1.18.1"
 sklearn = "^0.0"
 pytest-cov = "^2.8.1"
+flake8 = "^3.7.9"
 
 [tool.poetry.dev-dependencies]
 sphinx = "^2.4.4"
