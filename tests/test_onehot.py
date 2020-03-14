@@ -1,4 +1,4 @@
-from PrepPy import one_hot
+from PrepPy import onehot
 import pandas as pd
 import numpy as np
 
