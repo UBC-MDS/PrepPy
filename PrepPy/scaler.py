@@ -1,21 +1,26 @@
-def scaler(X_train, X_validation, X_test, colnames):
+import pandas as pd
+
+from sklearn.preprocessing import StandardScaler
+
+
+def scaler(x_train, x_validation, x_test, colnames):
     """
     Perform standard scaler on numerical features.
     Parameters
     ----------
-    X_train : pandas.core.frame.DataFrame, numpy array or list
+    x_train : pandas.core.frame.DataFrame, numpy array or list
     Dataframe of train set containing columns to be scaled.
-    X_validation : pandas.core.frame.DataFrame, numpy array or list
+    x_validation : pandas.core.frame.DataFrame, numpy array or list
     Dataframe of validation set containing columns to be scaled.
-    X_test : pandas.core.frame.DataFrame, numpy array or list
+    x_test : pandas.core.frame.DataFrame, numpy array or list
     Dataframe of test set containing columns to be scaled.
     num_columns : list
     A list of numeric column names
     Returns
     -------
     dict
-      Stores the scaled and transformed X_train and X_test sets separately
-      as two dataframes.
+      Stores the scaled and transformed x_train and x_test sets separately as
+      two dataframes.
     Examples
     --------
     >>> from PrepPy import prepPy as pp
@@ -25,68 +30,52 @@ def scaler(X_train, X_validation, X_test, colnames):
     >>> x_test = pd.DataFrame(np.array([['Blue', 66, 6], ['Red', 42, 8],
     ['Green', 96, 0]]),
                              columns=['color', 'count', 'usage'])
-    >>> X_validation = pd.DataFrame(np.array([['Blue', 30, 18], ['Red', 47, 2],
-    ['Green', 100, 4]]),
+    >>> x_validation = pd.DataFrame(np.array([['Blue', 30, 18], ['Red', 47, 2],
+     ['Green', 100, 4]]),
                              columns=['color', 'count', 'usage'])
     >>> colnames = ['count', 'usage']
-    >>> X_train = pp.scaler(x_train, X_validation, x_test, colnames)['x_train']
-    >>> X_train
+    >>> x_train = pp.scaler(x_train, x_validation, x_test, colnames)['x_train']
+    >>> x_train
     color   count   usage
     0 Blue 1.26538 -1.13555
     1 Red -0.0857887 -0.162221
     2 Green -1.17959 1.29777
-    >>> X_validation = pp.scaler(x_train, X_validation, x_test,\
-        colnames)['X_validation']
-    >>> X_validation
+
+    >>> x_validation = pp.scaler(x_train, x_validation,
+            x_test, colnames)['x_validation']
+    >>> x_validation
         color  count       usage
     0  Blue    1.80879917 -0.16222142
     1  Red     0.16460209  1.81110711
     2  Green   2.43904552 -4.082207
-    >>> X_test = pp.scaler(x_train, X_validation, x_test, colnames)['x_test']
-    >>> X_test
+    >>> x_test = pp.scaler(x_train, x_validation, x_test, colnames)['x_test']
+    >>> x_test
        color   count      usage
     0  Blue    1.90879917 -0.16222142
     1  Red     0.36460209  0.81110711
     2  Green   3.83904552 -3.082207
     """
-
-    from sklearn.preprocessing import StandardScaler
-    import pandas as pd
-
-    if not isinstance(X_train, pd.DataFrame):
-        raise Exception('X_train is not a dataframe.\
-            The type of X_train passed is: {}. Please\
-                convert to dataframe'.format(type(X_train)))
-
-    if not isinstance(X_test, pd.DataFrame):
-        raise Exception('X_test is not a dataframe. The type of X_test passed\
-            is: {}. Please convert to dataframe'.format(type(X_test)))
-
-    if not isinstance(X_validation, pd.DataFrame):
-        raise Exception('X_validation is not a dataframe. The type of\
-            X_validation passed is: {}. Please convert to\
-                dataframe'.format(type(X_validation)))
-
+    # Type error exceptions
+    if not isinstance(x_train, pd.DataFrame) or \
+            not isinstance(x_test, pd.DataFrame) \
+            or not isinstance(x_validation, pd.DataFrame):
+        raise TypeError('A wrong data type has been passed. Please pass a ' +
+                        'dataframe')
     if not isinstance(colnames, list):
-        raise Exception('Numeric column names is not a list')
-
-    if len(colnames) == 0:
-        colnames = list(X_train.columns)
-        # Colnames can be empty if all columns are numeric
-
+        raise TypeError('Numeric column names is not in a list format')
+    if ((x_train.empty is True) or (x_test.empty is True) or
+            (x_validation.empty is True) or
+            (len(colnames) == 0)):
+        raise ValueError('Input data cannot be empty')
     scaled_data = {}
-
     sc = StandardScaler()
-
-    X_train_scaled = X_train.copy()
-    X_train_scaled[colnames] = sc.fit_transform(X_train[colnames])
-    scaled_data['X_train'] = X_train_scaled
-    
-    X_validation_scaled = X_validation.copy()
-    X_validation_scaled[colnames] = sc.fit_transform(X_validation[colnames])
-    scaled_data['X_validation'] = X_validation_scaled
-
-    X_test_scaled = X_test.copy()
-    X_test_scaled[colnames] = sc.fit_transform(X_test[colnames])
-    scaled_data['X_test'] = X_test_scaled
+    x_train_scaled = x_train.copy()
+    x_train_scaled[colnames] = sc.fit_transform(x_train[colnames])
+    scaled_data['x_train'] = x_train_scaled
+    x_validation_scaled = x_validation.copy()
+    x_validation_scaled[colnames] = sc.fit_transform(x_validation[colnames])
+    scaled_data['x_validation'] = x_validation_scaled
+    x_test_scaled = x_test.copy()
+    x_test_scaled[colnames] = sc.fit_transform(x_test[colnames])
+    scaled_data['x_test'] = x_test_scaled
     return scaled_data
