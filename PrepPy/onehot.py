@@ -27,10 +27,10 @@ def onehot(cols, train, valid=None, test=None):
 
     Examples
     --------
-    >>> from prepPy import prepPy as pp
+    >>> from PrepPy import onehot
     >>> my_data = pd.DataFrame(np.array([['monkey'], ['dog'], ['cat']]),
                                 columns=['animals'])
-    >>> pp.onehot(pp.onehot(['animals'], mydata))
+    >>> onehot.onehot(['animals'], my_data)['train']
     animals_monkey    animals_dog   animals_cat
             1               0           0
             0               1           0
@@ -50,23 +50,27 @@ def onehot(cols, train, valid=None, test=None):
                                  columns=names)
 
     if valid is not None:
-        valid_encoded = pd.DataFrame(ohe.transform(valid[cols]),
-                                     columns=names)
 
         # Try-except for data_type
         if not isinstance(valid, pd.DataFrame):
             raise Exception("Please provide a valid Pandas DataFrame object")
         elif len(valid) == 0:
             raise Exception("Your 'valid' DataFrame is empty")
+            
+        valid_encoded = pd.DataFrame(ohe.transform(valid[cols]),
+                                     columns=names)
 
     if test is not None:
-        test_encoded = pd.DataFrame(ohe.transform(test[cols]),
-                                    columns=names)
 
         # Try-except for data_type
         if not isinstance(test, pd.DataFrame):
             raise Exception("Please provide a valid Pandas DataFrame object")
         elif len(test) == 0:
             raise Exception("Your 'test' DataFrame is empty")
+            
+        test_encoded = pd.DataFrame(ohe.transform(test[cols]),
+                                    columns=names)
 
-    return train_encoded, valid_encoded, test_encoded
+    return {"train": train_encoded, 
+            "valid": valid_encoded, 
+            "test": test_encoded}
