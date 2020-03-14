@@ -1,12 +1,12 @@
 [tool.poetry]
-name = "preppy"
+name = "PrepPy"
 version = "0.1.3"
 description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/UBC-MDS/preppy"
-repository = "https://github.com/UBC-MDS/preppy"
+homepage = "https://github.com/UBC-MDS/PrepPy"
+repository = "https://github.com/UBC-MDS/PrepPy"
 documentation = 'https://preppy524.readthedocs.io/en/latest/'
 
 [tool.poetry.dependencies]
