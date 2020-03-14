@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "PrepPy524"
+name = "PrepPy"
 version = "0.1.5"
 description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
