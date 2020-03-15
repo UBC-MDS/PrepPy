@@ -31,7 +31,7 @@ wheel = "^0.34.2"
 [tool.semantic_release]
  version_variable = "PrepPy/__init__.py:__version__"
  version_source = "commit"
- upload_to_pypi = "false"
+ upload_to_pypi = "true"
  patch_without_tag = "true"
 
 [build-system]
