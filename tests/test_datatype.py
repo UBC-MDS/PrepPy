@@ -1,6 +1,8 @@
 # from PrepPy import PrepPy as pp
 from PrepPy import datatype
+
 import pandas as pd
+
 import pytest
 
 test_dict = {'cat1': ['apple', None, 'pear', 'banana', 'blueberry', 'lemon'],
@@ -22,10 +24,12 @@ def test_datatype2():
     assert datatype.data_type(test_data)[1].equals(test_data[['cat1',
                                                               'cat2']])
 
+
 def check_exception1():
     with pytest.raises(Exception):
         datatype.data_type("df")
-        
+
+
 def check_exception2():
     with pytest.raises(Exception):
         datatype.data_type(pd.DataFrame())
