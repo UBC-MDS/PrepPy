@@ -1,5 +1,4 @@
-
-from PrepPy import train_valid_test_split
+from preppy524 import train_valid_test_split
 import numpy as np
 
 # Check data input types and parameters
