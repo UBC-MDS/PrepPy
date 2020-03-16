@@ -9,7 +9,7 @@ homepage = "https://github.com/UBC-MDS/PrepPy"
 repository = "https://github.com/UBC-MDS/PrepPy"
 documentation = 'https://preppy524.readthedocs.io'
 packages = [
-    { include = "PrepPy"},
+    { include = "preppy524"},
 ]
 
 [tool.poetry.dependencies]
