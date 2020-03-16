@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "PrepPy"
-version = "0.1.5"
+name = "preppy524"
+version = "0.1.2"
 description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
 license = "MIT"
@@ -28,8 +28,8 @@ pytest = "^5.4.1"
 python-semantic-release = "^4.10.0"
 wheel = "^0.34.2"
 
-[tool.semantic_release]
- version_variable = "PrepPy/__init__.py:__version__"
+    [tool.semantic_release]
+ version_variable = "preppy524/__init__.py:__version__"
  version_source = "commit"
  upload_to_pypi = "true"
  patch_without_tag = "true"

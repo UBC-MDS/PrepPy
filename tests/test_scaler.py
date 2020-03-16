@@ -1,4 +1,4 @@
-from PrepPy import scaler
+from preppy524 import scaler
 
 import numpy as np
 

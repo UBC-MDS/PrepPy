@@ -12,7 +12,7 @@ To install PrepPy, run this command in your terminal:
 
 .. code-block:: console
 
-    $ pip install -i https://test.pypi.org/simple/ PrepPy
+    $ pip install -i https://test.pypi.org/simple/ preppy524
 
 This is the preferred method to install PrepPy, as it will always install the most recent stable release.
 
@@ -32,13 +32,13 @@ You can either clone the public repository:
 
 .. code-block:: console
 
-    $ git clone git://github.com/camadi/PrepPy
+    $ git clone https://github.com/UBC-MDS/PrepPy.git
 
 Or download the `tarball`_:
 
 .. code-block:: console
 
-    $ curl  -OL https://github.com/camadi/PrepPy/tarball/master
+    $ curl  -OL https://github.com/UBC-MDS/preppy/tarball/master
 
 Once you have a copy of the source, you can install it with:
 
@@ -47,5 +47,5 @@ Once you have a copy of the source, you can install it with:
     $ python setup.py install
 
 
-.. _Github repo: https://github.com/camadi/PrepPy
-.. _tarball: https://github.com/camadi/PrepPy/tarball/master
+.. _Github repo: https://github.com/UBC-MDS/preppy
+.. _tarball: https://github.com/UBC-MDS/preppy/tarball/master

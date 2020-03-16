@@ -1,7 +1,7 @@
-PrepPy
-======
+preppy524
+=========
 
 .. toctree::
    :maxdepth: 4
 
-   PrepPy
+   preppy524

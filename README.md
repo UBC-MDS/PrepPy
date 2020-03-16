@@ -14,7 +14,7 @@ This package will help with all of those tasks.
 ### Installation:
 
 ```
-pip install -i https://test.pypi.org/simple/ PrepPy
+pip install -i https://test.pypi.org/simple/ preppy524
 ```
 
 ### Features

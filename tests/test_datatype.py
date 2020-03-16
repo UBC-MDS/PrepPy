@@ -1,6 +1,4 @@
-# from PrepPy import PrepPy as pp
-from PrepPy import datatype
-
+from preppy524 import datatype
 import pandas as pd
 
 import pytest
