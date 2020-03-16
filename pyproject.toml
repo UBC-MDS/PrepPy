@@ -1,5 +1,9 @@
 [tool.poetry]
+<<<<<<< HEAD
 name = "preppy524"
+=======
+name = "preppy"
+>>>>>>> master
 version = "0.1.2"
 description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
@@ -26,7 +30,11 @@ python-semantic-release = "^4.10.0"
 wheel = "^0.34.2"
 
     [tool.semantic_release]
+<<<<<<< HEAD
  version_variable = "preppy524/__init__.py:__version__"
+=======
+ version_variable = "PrepPy/__init__.py:__version__"
+>>>>>>> master
  version_source = "commit"
  upload_to_pypi = "false"
  patch_without_tag = "true"
