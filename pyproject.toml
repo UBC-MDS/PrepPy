@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "preppy524"
-version = "0.1.1"
+version = "0.1.2"
 description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
 license = "MIT"
