@@ -5,9 +5,12 @@ description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/UBC-MDS/preppy"
-repository = "https://github.com/UBC-MDS/preppy"
-documentation = 'https://preppy524.readthedocs.io/en/latest/'
+homepage = "https://github.com/UBC-MDS/PrepPy"
+repository = "https://github.com/UBC-MDS/PrepPy"
+documentation = 'https://preppy524.readthedocs.io'
+packages = [
+    { include = "PrepPy"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.7"
@@ -28,7 +31,7 @@ wheel = "^0.34.2"
     [tool.semantic_release]
  version_variable = "preppy524/__init__.py:__version__"
  version_source = "commit"
- upload_to_pypi = "false"
+ upload_to_pypi = "true"
  patch_without_tag = "true"
 
 [build-system]
