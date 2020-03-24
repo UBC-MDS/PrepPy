@@ -13,22 +13,26 @@ test_data = pd.DataFrame(test_dict)
 
 
 def test_datatype1():
+    # test if numeric data is correctly separated from original data
     assert datatype.data_type(test_data)[0].equals(test_data[['num1',
                                                               'num2',
                                                               'num3']])
 
 
 def test_datatype2():
+    # test if categorical data is correctly separated from original data
     assert datatype.data_type(test_data)[1].equals(test_data[['cat1',
                                                               'cat2']])
 
 
 def check_exception1():
+    # test if an invalid input will be handled by function correctly
     with pytest.raises(Exception):
         datatype.data_type("df")
 
 
 def check_exception2():
+    # test if an empty input will be handled by function correctly
     with pytest.raises(Exception):
         datatype.data_type(pd.DataFrame())
 
