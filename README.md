@@ -46,13 +46,11 @@ This package has the following features:
 
 ### Usage
 
-#### PrepPy.datatype module
+#### preppy524.datatype module
 The `data_type()` function identifies features of different data types: numeric or categorical.  
 
-|  | |
-|---|----------------|
-| Input |Pandas DataFrame| 
-| Output |A tuple (Pandas DataFrame of numeric features, Pandas DataFrame of categorical features)| 
+__Input:__ Pandas DataFrame  
+__Output:__ A tuple (Pandas DataFrame of numeric features, Pandas DataFrame of categorical features)
 
 ```
 from preppy524 import datatype  
@@ -60,6 +58,7 @@ datatype.data_type(my_data)
 ```
 
 **Example:**  
+
 ```
 my_data = pd.DataFrame({'fruits': ['apple', 'banana', 'pear'],
                         'count': [3, 5, 8],
@@ -81,6 +80,77 @@ my_data = pd.DataFrame({'fruits': ['apple', 'banana', 'pear'],
 | 0 | apple |
 | 1 | banana |
 | 2 | pear |
+
+#### preppy524.train_valid_test_split module
+The `train_valid_test_split()` splits dataframes into random train, validation and test subsets.
+
+__Input:__ Sequence of Pandas DataFrame of the same length / shape[0]  
+__Output:__ List containing train, validation and test splits of the input data
+
+```
+from preppy524 import train_valid_test_split  
+train_valid_test_split.train_valid_test_split(X, y)
+```
+
+**Example:** 
+
+```
+X, y = np.arange(16).reshape((8, 2)), list(range(8))
+
+X_train, X_valid, X_test, y_train, y_valid, y_test =
+            train_valid_test_split.train_valid_test_split(X,
+                                                          y,
+                                                          test_size=0.25,
+                                                          valid_size=0.25,
+                                                          random_state=777)
+                                                          
+y_train
+```
+
+[3, 0, 2, 5]
+
+#### preppy524.onehot module
+The `onehot()` function encodes features of categorical type.
+
+__Input:__ List of categorical features, Train set, Validation set, Test set (Pandas DataFrames)  
+__Output:__ Encoded Pandas DataFrame
+
+```
+from preppy524 import onehot
+onehot.onehot(cols=['catgorical_columns'], train=my_data)
+```
+
+**Example:** 
+
+`onehot.onehot(['fruits'], my_data)['train']`
+
+|  | apple | banana | pear |
+|---|-------|--------|------|
+| 0 | 1 | 0 | 0 |
+| 1 | 0 | 1 | 0 |
+| 2 | 0 | 0 | 1 |
+
+#### preppy524.scaler module
+The `scaler()` performs standard scaling of numeric features.
+
+__Input:__ Train set, Validation set, Test set (Pandas DataFrames), List of numeric features  
+__Output:__ Dictionary of transformed sets (Pandas DataFrames)
+
+```
+from preppy524 import scaler
+scaler.scaler(x_train, x_validation, x_test, colnames)
+```
+
+**Example:** 
+
+`scaler.scaler(my_data, my_data, my_data, ['count'])['x_validation']`
+
+|  | count |
+|---|-------|
+| 0 | -0.927 |
+| 1 | -0.132 |
+| 2 | 1.059 |
+
 
 ### Our package in the Python ecosystem
 
