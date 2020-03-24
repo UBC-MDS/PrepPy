@@ -12,31 +12,31 @@ test_dict = {'cat1': ['apple', None, 'pear', 'banana', 'blueberry', 'lemon'],
 test_data = pd.DataFrame(test_dict)
 
 
-def test_datatype1():
+def test_datatype_num():
     # test if numeric data is correctly separated from original data
     assert datatype.data_type(test_data)[0].equals(test_data[['num1',
                                                               'num2',
                                                               'num3']])
 
 
-def test_datatype2():
+def test_datatype_cat():
     # test if categorical data is correctly separated from original data
     assert datatype.data_type(test_data)[1].equals(test_data[['cat1',
                                                               'cat2']])
 
 
-def check_exception1():
+def check_exception_wrong_input():
     # test if an invalid input will be handled by function correctly
     with pytest.raises(Exception):
         datatype.data_type("df")
 
 
-def check_exception2():
+def check_exception_empty_df():
     # test if an empty input will be handled by function correctly
     with pytest.raises(Exception):
         datatype.data_type(pd.DataFrame())
 
-test_datatype1()
-test_datatype2()
-check_exception1()
-check_exception2()
+test_datatype_num()
+test_datatype_cat()
+check_exception_wrong_input()
+check_exception_empty_df()
