@@ -49,8 +49,9 @@ This package has the following features:
 #### PrepPy.datatype module
 The `data_type()` function identifies features of different data types: numeric or categorical.  
 
-| <span style="font-weight:normal">Input</span>  | <span style="font-weight:normal">Pandas DataFrame</span>    |
+|  | |
 |---|----------------|
+| Input |Pandas DataFrame| 
 | Output |A tuple (Pandas DataFrame of numeric features, Pandas DataFrame of categorical features)| 
 
 ```
@@ -58,7 +59,7 @@ from preppy524 import datatype
 datatype.data_type(my_data)
 ```
 
-**Example: **  
+**Example:**  
 ```
 my_data = pd.DataFrame({'fruits': ['apple', 'banana', 'pear'],
                         'count': [3, 5, 8],
