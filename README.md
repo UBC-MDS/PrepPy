@@ -46,27 +46,40 @@ This package has the following features:
 
 ### Usage
 
-from PrepPy import PrepPy as pp
+#### PrepPy.datatype module
+The `data_type()` function identifies features of different data types: numeric or categorical.  
 
-**Identify features of different data types**
-`pp.data_type(my_data)['num']`
+| <span style="font-weight:normal">Input</span>  | <span style="font-weight:normal">Pandas DataFrame</span>    |
+|---|----------------|
+| Output |A tuple (Pandas DataFrame of numeric features, Pandas DataFrame of categorical features)| 
 
-`pp.data_type(my_data)['cat']`
+```
+from preppy524 import datatype  
+datatype.data_type(my_data)
+```
 
+**Example: **  
+```
+my_data = pd.DataFrame({'fruits': ['apple', 'banana', 'pear'],
+                        'count': [3, 5, 8],
+                        'price': [1.0, 6.5, 9.23]})
+```
 
-**One-hot encode features of categorical type**
+`datatype.data_type(my_data)[0]`
 
-`pp.one_hot(my_data)`
+|  |count| price |
+|---|----|----|
+| 0 |     3 |   1.0 |
+| 1 |     5 |   6.5 |
+| 2 |     8 |  9.23 |
 
-**Train, validation, and test split**
+`datatype.data_type(my_data)[1]`
 
-`pp.split(my_data)`
-
-**Standard Scaling of categorical features**
-
-`X_train = pp.scaler(x_train, x_test, colnames)['x_train']`
-
-`X_test = pp.scaler(x_train, x_test, colnames)['x_test']`
+|  | fruits |
+|---|--------|
+| 0 | apple |
+| 1 | banana |
+| 2 | pear |
 
 ### Our package in the Python ecosystem
 
