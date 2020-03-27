@@ -13,12 +13,14 @@ helperdata1 = pd.DataFrame(np.array([['monkey'],
 
 
 def onehot_test1():
+    # test if train set has been encoded correctly
     output = onehot.onehot(cols=['animals'],
                            train=helperdata1)
     assert(output['train'].shape == (3, 3))
 
 
 def onehot_test2():
+    # test if validation set has been encoded correctly
     output = onehot.onehot(cols=['animals'],
                            train=helperdata1,
                            valid=helperdata1)
@@ -26,6 +28,7 @@ def onehot_test2():
 
 
 def onehot_test3():
+    # test if output is correct when three sets are passed to the function
     output = onehot.onehot(cols=['animals'],
                            train=helperdata1,
                            valid=helperdata1,
@@ -34,6 +37,7 @@ def onehot_test3():
 
 
 def check_exception1():
+    # check exception handling when validation set input is of wrong data type
     with pytest.raises(Exception):
         onehot.onehot(cols=['animals'],
                       train=helperdata1,
@@ -41,6 +45,7 @@ def check_exception1():
 
 
 def check_exception2():
+    # check exception handling when test set input is of wrong data type
     with pytest.raises(Exception):
         onehot.onehot(cols=['animals'],
                       train=helperdata1,
@@ -49,6 +54,7 @@ def check_exception2():
 
 
 def check_exception3():
+    # check exception handling when validation set input is an empty data frame
     with pytest.raises(Exception):
         onehot.onehot(cols=['animals'],
                       train=helperdata1,
@@ -56,6 +62,7 @@ def check_exception3():
 
 
 def check_exception4():
+    # check exception handling when test set input is an empty data frame
     with pytest.raises(Exception):
         onehot.onehot(cols=['animals'],
                       train=helperdata1,
