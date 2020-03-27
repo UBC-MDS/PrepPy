@@ -1,4 +1,4 @@
-## PrepPy 
+## PrepPy
 
 ![](https://github.com/UBC-MDS/PrepPy/workflows/build/badge.svg) [![codecov](https://codecov.io/gh/UBC-MDS/PrepPy/branch/master/graph/badge.svg)](https://codecov.io/gh/UBC-MDS/PrepPy) ![Release](https://github.com/UBC-MDS/PrepPy/workflows/Release/badge.svg)
 
