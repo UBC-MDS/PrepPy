@@ -36,15 +36,8 @@ def check_exception_empty_df():
     with pytest.raises(Exception):
         datatype.data_type(pd.DataFrame())
 
-<<<<<<< HEAD
 
-test_datatype1()
-test_datatype2()
-check_exception1()
-check_exception2()
-=======
 test_datatype_num()
 test_datatype_cat()
 check_exception_wrong_input()
 check_exception_empty_df()
->>>>>>> 34807fa47b778677a9348a5d3a1f17cd4336c93c
