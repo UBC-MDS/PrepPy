@@ -1,9 +1,6 @@
 from preppy524 import onehot
 import pandas as pd
 import numpy as np
-
-import pandas as pd
-
 import pytest
 
 helperdata1 = pd.DataFrame(np.array([['monkey'],
@@ -68,6 +65,7 @@ def check_exception4():
                       train=helperdata1,
                       valid=helperdata1,
                       test=pd.DataFrame())
+
 
 onehot_test1()
 onehot_test2()

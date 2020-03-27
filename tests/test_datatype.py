@@ -1,7 +1,7 @@
 from preppy524 import datatype
 import pandas as pd
-
 import pytest
+
 
 test_dict = {'cat1': ['apple', None, 'pear', 'banana', 'blueberry', 'lemon'],
              'num1': [0, 1, 2, 3, 4, 5],
@@ -35,6 +35,7 @@ def check_exception_empty_df():
     # test if an empty input will be handled by function correctly
     with pytest.raises(Exception):
         datatype.data_type(pd.DataFrame())
+
 
 test_datatype_num()
 test_datatype_cat()
