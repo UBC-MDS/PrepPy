@@ -6,7 +6,7 @@
 
 ### Package Summary
 
-`PrepPy` is a package for Python to help preprocessing in machine learning tasks. 
+`PrepPy` is a package for Python to help preprocessing in machine learning tasks.
 There are certain repetitive tasks  that come up often when doing a machine learning project and this package aims to alleviate those chores.
 Some of the issues that come up regularly are: finding the types of each column in a dataframe, splitting the data (whether into train/test sets or train/test/validation sets, one-hot encoding,  and scaling features.
 This package will help with all of those tasks.
