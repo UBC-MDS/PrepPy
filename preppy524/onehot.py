@@ -56,7 +56,7 @@ def onehot(cols, train, valid=None, test=None):
             raise Exception("Please provide a valid Pandas DataFrame object")
         elif len(valid) == 0:
             raise Exception("Your 'valid' DataFrame is empty")
-            
+
         valid_encoded = pd.DataFrame(ohe.transform(valid[cols]),
                                      columns=names)
 
@@ -67,10 +67,10 @@ def onehot(cols, train, valid=None, test=None):
             raise Exception("Please provide a valid Pandas DataFrame object")
         elif len(test) == 0:
             raise Exception("Your 'test' DataFrame is empty")
-            
+
         test_encoded = pd.DataFrame(ohe.transform(test[cols]),
                                     columns=names)
 
-    return {"train": train_encoded, 
-            "valid": valid_encoded, 
+    return {"train": train_encoded,
+            "valid": valid_encoded,
             "test": test_encoded}

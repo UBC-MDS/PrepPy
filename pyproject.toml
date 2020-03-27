@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "preppy524"
-version = "0.1.2"
+version = "0.1.4"
 description = "Python package to preprocess data"
 authors = ["Chimaobi Amadi <maobiamadi@gmail.com>"]
 license = "MIT"
@@ -17,9 +17,9 @@ python = "^3.7"
 pytest = "^5.4.1"
 pandas = "^1.0.1"
 numpy = "^1.18.1"
-sklearn = "^0.0"
 pytest-cov = "^2.8.1"
 flake8 = "^3.7.9"
+scikit-learn = "^0.22.2"
 
 [tool.poetry.dev-dependencies]
 sphinx = "^2.4.4"
@@ -28,7 +28,7 @@ pytest = "^5.4.1"
 python-semantic-release = "^4.10.0"
 wheel = "^0.34.2"
 
-    [tool.semantic_release]
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                [tool.semantic_release]
  version_variable = "preppy524/__init__.py:__version__"
  version_source = "commit"
  upload_to_pypi = "true"

@@ -1,7 +1,7 @@
 from preppy524 import datatype
 import pandas as pd
-
 import pytest
+
 
 test_dict = {'cat1': ['apple', None, 'pear', 'banana', 'blueberry', 'lemon'],
              'num1': [0, 1, 2, 3, 4, 5],
@@ -31,6 +31,7 @@ def check_exception1():
 def check_exception2():
     with pytest.raises(Exception):
         datatype.data_type(pd.DataFrame())
+
 
 test_datatype1()
 test_datatype2()
